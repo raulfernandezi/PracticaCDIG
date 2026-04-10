@@ -13,14 +13,18 @@ public class ControladorPlatos : MonoBehaviour
         numPlatos = 0;
     }
 
-    public bool CambiarNumPlatos(int valor)
+    public bool ComprobarNumPlatos(int valor)
     {
         if (numPlatos + valor >= 0 && numPlatos + valor <= controlador.GetNumComensales())
         {
-            numPlatos += valor;
             return true;
         }
         return false;
+    }
+
+    public void CambiarNumPlatos(int valor)
+    {
+        numPlatos += valor;
     }
 
     public bool Platos()
