@@ -19,7 +19,7 @@ public class Plato : MonoBehaviour
 
     public void CambiarNumPlatos(int valor)
     {
-       if(controladorPlatos.CambiarNumPlatos(valor))
+       if(controladorPlatos.CambiarNumPlatos(valor) && numPlatosint + valor > 0)
        {
             numPlatosint += valor;
             numPlatos.text = numPlatosint.ToString();
