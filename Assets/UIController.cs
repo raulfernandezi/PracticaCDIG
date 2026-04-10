@@ -9,6 +9,8 @@ public class UIController : MonoBehaviour
     [SerializeField] private GameObject[] Paneles;
     [SerializeField] private TextMeshProUGUI textoNumComensales;
 
+
+
     private int posicion;
     private int numComensales;
     private const int MAX_COMENSALES = 4;
@@ -29,7 +31,7 @@ public class UIController : MonoBehaviour
         
     }
 
-    public void Avanzar()
+    public void AvanzarPantalla()
     {
         Paneles[posicion].SetActive(false);
         posicion++;

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,8 +7,11 @@ public class ControladorPlatos : MonoBehaviour
 {
     [SerializeField] private UIController controlador;
 
+    public EventHandler PlatosMaximos;
+    public EventHandler PlatosNoMaximos;
+
     private int numPlatos;
-    // Update is called once per frame
+
     void Start()
     {
         numPlatos = 0;
@@ -25,6 +29,13 @@ public class ControladorPlatos : MonoBehaviour
     public void CambiarNumPlatos(int valor)
     {
         numPlatos += valor;
+        if(numPlatos == controlador.GetNumComensales())
+        {
+            PlatosMaximos?.Invoke(this, EventArgs.Empty);
+        }else if (numPlatos < controlador.GetNumComensales())
+        {
+            PlatosNoMaximos?.Invoke(this, EventArgs.Empty);
+        }
     }
 
     public bool Platos()
