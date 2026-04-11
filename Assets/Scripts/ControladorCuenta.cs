@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static ControladorPlatos;
 
 public class ControladorCuenta : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class ControladorCuenta : MonoBehaviour
     private Vector3 posicion;
     // Start is called before the first frame update
     void Start()
-    {
+    {   /*
         platos = controlador.getListaPlatos();
         posicion = posInicial.position;
 
@@ -22,7 +23,7 @@ public class ControladorCuenta : MonoBehaviour
             GameObject plato = (GameObject)Instantiate(prefabPlatoCuenta, posicion, Quaternion.identity, scrollViewContent);
             //plato.getChild("TextoNombre").text = p.platoNombre;
             posicion.y -= 65;
-        }
+        }*/
     }
 
     // Update is called once per frame
