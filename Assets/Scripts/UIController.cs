@@ -96,7 +96,8 @@ public class UIController : MonoBehaviour
 
     private void CambioNumPlatos(System.Object sender, EventArgs e) {
         if (controladorPlatosPrimeros.NumPlatosElegidosCorrecto() &&
-            controladorPlatosSegundos.NumPlatosElegidosCorrecto())
+            controladorPlatosSegundos.NumPlatosElegidosCorrecto() &&
+                controladorPlatosPostre.NumPlatosElegidosCorrecto())
         {
             HabilitarBoton(botonSeleccionPlatos);
         }

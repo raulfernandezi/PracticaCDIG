@@ -35,7 +35,9 @@ public class ControladorPlatos : MonoBehaviour
     {
         numPlatos += valor;
         platos.RemoveAll(t => t.platoNombre == platoNombre);
-        platos.Add(new PlatoTexto (platoNombre, textoPrecio, textoNumPlatos, tipoPlato));
+        if (int.Parse(textoNumPlatos)>0) {
+            platos.Add(new PlatoTexto(platoNombre, textoPrecio, textoNumPlatos, tipoPlato));
+        }
 
         if(numPlatos == controlador.GetNumComensales())
         {
