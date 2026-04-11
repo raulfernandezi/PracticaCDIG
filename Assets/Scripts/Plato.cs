@@ -25,10 +25,11 @@ public class Plato : MonoBehaviour
         numPlatosint = 0;
         controladorPlatos.PlatosMaximos += PlatosMaximos;
         controladorPlatos.PlatosNoMaximos += PlatosNoMaximos;
-        HabilitarBoton(botonDisminuir);
+        DeshabilitarBoton(botonDisminuir);
         if (noDisponible)
         {
             iconoDisponible.transform.gameObject.SetActive(true);
+            DeshabilitarBoton(botonAumentar);
         }
         else
         {
@@ -37,12 +38,15 @@ public class Plato : MonoBehaviour
     }
 
     private void PlatosMaximos(System.Object sender, EventArgs e) {
-        HabilitarBoton(botonAumentar);
+        DeshabilitarBoton(botonAumentar);
     }
 
     private void PlatosNoMaximos(System.Object sender, EventArgs e)
     {
-        DeshabilitarBoton(botonAumentar);
+        if (EstaDisponible())
+        {
+            HabilitarBoton(botonAumentar);
+        }
     }
 
     private void CambiarNumPlatos(int valor)
@@ -53,11 +57,16 @@ public class Plato : MonoBehaviour
             textoNumPlatos.text = numPlatosint.ToString();
             controladorPlatos.CambiarNumPlatos(valor, textoNombrePlato.text, textoPrecio.text, textoNumPlatos.text);
             if (numPlatosint == 0) {
-                HabilitarBoton(botonDisminuir);
-            }
-            else {
                 DeshabilitarBoton(botonDisminuir);
             }
+            else { 
+                HabilitarBoton(botonDisminuir);
+            }
         }
+    }
+
+    private bool EstaDisponible()
+    {
+        return !noDisponible;
     }
 }

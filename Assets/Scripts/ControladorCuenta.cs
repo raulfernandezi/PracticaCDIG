@@ -26,6 +26,8 @@ public class ControladorCuenta : MonoBehaviour
     {
         platos = controlador.getListaPlatos();
         posicion = posInicial.position;
+        RectTransform rect = scrollViewContent.GetComponent<RectTransform>();
+        rect.sizeDelta = new Vector2(rect.sizeDelta.x, 90 * platos.Count);   
         TextMeshProUGUI texto;
         string nombrePlato;
         string cantidadPlato;

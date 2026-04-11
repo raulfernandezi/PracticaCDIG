@@ -61,6 +61,7 @@ public class UIController : MonoBehaviour
                 platos.AddRange(controladorPlatosBebida.GetPlatos());
                 platos.AddRange(controladorPlatosPostre.GetPlatos());
                 platos.AddRange(controladorPlatosCafe.GetPlatos());
+                platos.Add(new PlatoTexto("pan","0.0", numComensales.ToString()));
                 AvanzarASiguientePanel();
                 break;
             case 3:

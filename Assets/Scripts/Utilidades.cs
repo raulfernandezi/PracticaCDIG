@@ -20,11 +20,11 @@ public class Utilidades
 
     public static void HabilitarBoton(Button buton)
     {
-        buton.enabled = false;
+        buton.enabled = true;
     }
 
     public static void DeshabilitarBoton(Button buton)
     {
-        buton.enabled = true;
+        buton.enabled = false;
     }
 }
