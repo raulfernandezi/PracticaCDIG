@@ -14,7 +14,7 @@ public class Plato : MonoBehaviour
     [SerializeField] private Button botonAumentar;
     [SerializeField] private Button botonDisminuir;
     [SerializeField] private Image iconoDisponible;
-    [SerializeField] private bool disponible;
+    [SerializeField] private bool noDisponible;
 
     private int numPlatosint;
 
@@ -24,7 +24,14 @@ public class Plato : MonoBehaviour
         controladorPlatos.PlatosMaximos += PlatosMaximos;
         controladorPlatos.PlatosNoMaximos += PlatosNoMaximos;
         ApagarBoton(botonDisminuir);
-
+        if (noDisponible)
+        {
+            iconoDisponible.transform.gameObject.SetActive(true);
+        }
+        else
+        {
+            iconoDisponible.transform.gameObject.SetActive(false);
+        }
     }
 
     private void PlatosMaximos(System.Object sender, EventArgs e) {
