@@ -15,6 +15,8 @@ public class UIController : MonoBehaviour
     [SerializeField] private ControladorPlatos controladorPlatosSegundos;
     [SerializeField] private ControladorPlatos controladorPlatosBebida;
     [SerializeField] private ControladorPlatos controladorPlatosPostre;
+    [SerializeField] private ControladorPlatos controladorPlatosCafe;
+
 
     [SerializeField] private GameObject[] pestaniasPlatos;
 
@@ -24,7 +26,7 @@ public class UIController : MonoBehaviour
 
     private int posicion;
     private int numComensales;
-    private int numPestaniaPlatos; // entre 0 y 3 de primeros a postres
+    private int numPestaniaPlatos; // entre 0 y 4 de primeros a cafe
     private const int MAX_COMENSALES = 4;
     // Start is called before the first frame update
     void Start()
@@ -33,7 +35,7 @@ public class UIController : MonoBehaviour
         posicion = 0;
         numComensales = 1;
         botonSeleccionPlatos.enabled = false;
-        for (int i = 1; i < 4; i++)
+        for (int i = 1; i < 5; i++)
         {
             pestaniasPlatos[i].SetActive(false);
         }
@@ -45,6 +47,7 @@ public class UIController : MonoBehaviour
         controladorPlatosSegundos.CambioNumPLatos += CambioNumPlatos;
         controladorPlatosBebida.CambioNumPLatos += CambioNumPlatos;
         controladorPlatosPostre.CambioNumPLatos += CambioNumPlatos;
+        controladorPlatosCafe.CambioNumPLatos += CambioNumPlatos;
     }
 
     // Update is called once per frame
@@ -60,6 +63,7 @@ public class UIController : MonoBehaviour
                 platos.AddRange(controladorPlatosSegundos.GetPlatos());
                 platos.AddRange(controladorPlatosBebida.GetPlatos());
                 platos.AddRange(controladorPlatosPostre.GetPlatos());
+                platos.AddRange(controladorPlatosCafe.GetPlatos());
                 Paneles[posicion].SetActive(false);
                 posicion++;
                 Paneles[posicion].SetActive(true);

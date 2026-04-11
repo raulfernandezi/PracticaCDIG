@@ -30,9 +30,9 @@ public class ControladorPlatos : MonoBehaviour
 
     private int numPlatos;
 
-    void Start()
+    void Awake()
     {
-        platos= new List<PlatoTexto>();
+        platos = new List<PlatoTexto>();
         numPlatos = 0;
     }
 
