@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static ControladorPlatos;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 using System;
+using static Utilidades;
 
 public class ControladorCuenta : MonoBehaviour
 {
@@ -20,19 +20,8 @@ public class ControladorCuenta : MonoBehaviour
     [SerializeField] private TextMeshProUGUI textoPrecioIva;
     [SerializeField] private TextMeshProUGUI textoPrecioTotalSinIva;
 
-
     private Vector3 posicion;
-    // Start is called before the first frame update
-    void Start()
-    {   
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     public void calcularCuenta()
     {
         platos = controlador.getListaPlatos();
@@ -42,8 +31,6 @@ public class ControladorCuenta : MonoBehaviour
         string cantidadPlato;
         string precioPlato;
         double precio;
-        double precioTotalSinIva;
-        double precioIva;
         double precioTotal = 0;
         double porcentajeIva = 0.21;
         char simboloEuro = '€';
@@ -70,8 +57,8 @@ public class ControladorCuenta : MonoBehaviour
             posicion.y -= 65;
         }
 
-        precioIva = Math.Round(precioTotal * porcentajeIva, 2);
-        precioTotalSinIva = Math.Round(precioTotal - precioIva,2);
+        double precioIva = Math.Round(precioTotal * porcentajeIva, 2);
+        double precioTotalSinIva = Math.Round(precioTotal - precioIva,2);
 
         textoPrecioTotalSinIva.text = precioTotalSinIva.ToString() + simboloEuro;
         textoPrecioIva.text = precioIva.ToString() + simboloEuro;

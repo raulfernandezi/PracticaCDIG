@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-
+using static Utilidades;
 public class Plato : MonoBehaviour
 {
     [SerializeField] private ControladorPlatos controladorPlatos;
@@ -25,7 +25,7 @@ public class Plato : MonoBehaviour
         numPlatosint = 0;
         controladorPlatos.PlatosMaximos += PlatosMaximos;
         controladorPlatos.PlatosNoMaximos += PlatosNoMaximos;
-        ApagarBoton(botonDisminuir);
+        HabilitarBoton(botonDisminuir);
         if (noDisponible)
         {
             iconoDisponible.transform.gameObject.SetActive(true);
@@ -37,12 +37,12 @@ public class Plato : MonoBehaviour
     }
 
     private void PlatosMaximos(System.Object sender, EventArgs e) {
-        ApagarBoton(botonAumentar);
+        HabilitarBoton(botonAumentar);
     }
 
     private void PlatosNoMaximos(System.Object sender, EventArgs e)
     {
-        EncenderBoton(botonAumentar);
+        DeshabilitarBoton(botonAumentar);
     }
 
     private void CambiarNumPlatos(int valor)
@@ -53,21 +53,11 @@ public class Plato : MonoBehaviour
             textoNumPlatos.text = numPlatosint.ToString();
             controladorPlatos.CambiarNumPlatos(valor, textoNombrePlato.text, textoPrecio.text, textoNumPlatos.text);
             if (numPlatosint == 0) {
-                ApagarBoton(botonDisminuir);
+                HabilitarBoton(botonDisminuir);
             }
             else {
-                EncenderBoton(botonDisminuir);
+                DeshabilitarBoton(botonDisminuir);
             }
         }
-    }
-
-
-    private void ApagarBoton(Button buton) {
-        buton.enabled = false;
-    }
-
-    private void EncenderBoton(Button buton)
-    {
-        buton.enabled = true;
     }
 }

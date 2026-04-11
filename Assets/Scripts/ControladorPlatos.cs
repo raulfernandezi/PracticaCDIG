@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Utilidades;
 
 public class ControladorPlatos : MonoBehaviour
 {
@@ -12,22 +13,6 @@ public class ControladorPlatos : MonoBehaviour
     public EventHandler CambioNumPLatos;
 
     private List<PlatoTexto> platos;
-
-    public class PlatoTexto
-    {
-        public String platoNombre;
-        public String textoPrecio;
-        public String textoNumPlato;
-
-        public PlatoTexto(String platoNombre, String textoPrecio, String textoNumPlato)    {
-            this.platoNombre = platoNombre;
-            this.textoPrecio = textoPrecio;
-            this.textoNumPlato = textoNumPlato;
-        }
-    }
-
-
-
     private int numPlatos;
 
     void Awake()
@@ -45,16 +30,12 @@ public class ControladorPlatos : MonoBehaviour
         return false;
     }
 
-    public void CambiarNumPlatos(int valor, String platoNombre,
-    String textoPrecio, String textoNumPlatos)
+    public void CambiarNumPlatos(int valor, String platoNombre, String textoPrecio, String textoNumPlatos)
     {
         numPlatos += valor;
         platos.RemoveAll(t => t.platoNombre == platoNombre);
-        foreach (PlatoTexto t in platos)
-        {
-            Debug.Log(t.textoNumPlato);
-        }
         platos.Add(new PlatoTexto (platoNombre, textoPrecio, textoNumPlatos));
+
         if(numPlatos == controlador.GetNumComensales())
         {
             PlatosMaximos?.Invoke(this, EventArgs.Empty);
@@ -62,6 +43,7 @@ public class ControladorPlatos : MonoBehaviour
         {
             PlatosNoMaximos?.Invoke(this, EventArgs.Empty);
         }
+
         CambioNumPLatos?.Invoke(this, EventArgs.Empty);
     }
 

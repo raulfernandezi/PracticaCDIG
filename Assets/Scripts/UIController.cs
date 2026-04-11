@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using static ControladorPlatos;
+using static Utilidades;
 
 public class UIController : MonoBehaviour
 {
@@ -29,14 +30,14 @@ public class UIController : MonoBehaviour
     private int numComensales;
     private int numPestaniaPlatos; // entre 0 y 4 de primeros a cafe
     private const int MAX_COMENSALES = 4;
-    // Start is called before the first frame update
+    private const int NUM_PESTANIAS_PLATOS = 5;
     void Start()
     {
         platos = new List<PlatoTexto>();
         posicion = 0;
         numComensales = 1;
-        botonSeleccionPlatos.enabled = false;
-        for (int i = 1; i < 5; i++)
+        DeshabilitarBoton(botonSeleccionPlatos);
+        for (int i = 1; i < NUM_PESTANIAS_PLATOS; i++)
         {
             pestaniasPlatos[i].SetActive(false);
         }
@@ -51,11 +52,6 @@ public class UIController : MonoBehaviour
         controladorPlatosCafe.CambioNumPLatos += CambioNumPlatos;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
     public void AvanzarPantalla()
     {
         switch (posicion) {
@@ -65,23 +61,25 @@ public class UIController : MonoBehaviour
                 platos.AddRange(controladorPlatosBebida.GetPlatos());
                 platos.AddRange(controladorPlatosPostre.GetPlatos());
                 platos.AddRange(controladorPlatosCafe.GetPlatos());
-                Paneles[posicion].SetActive(false);
-                posicion++;
-                Paneles[posicion].SetActive(true);
+                AvanzarASiguientePanel();
                 break;
             case 3:
                 controladorCuenta.calcularCuenta();
-                Paneles[posicion].SetActive(false);
-                posicion++;
-                Paneles[posicion].SetActive(true);
+                AvanzarASiguientePanel();
                 break;
             default:
-                Paneles[posicion].SetActive(false);
-                posicion++;
-                Paneles[posicion].SetActive(true);
+                AvanzarASiguientePanel();
                 break;
         }
     }
+
+    private void AvanzarASiguientePanel()
+    {
+        Paneles[posicion].SetActive(false);
+        posicion++;
+        Paneles[posicion].SetActive(true);
+    }
+
     public List<PlatoTexto> getListaPlatos() {
         return platos;
     }
@@ -96,10 +94,10 @@ public class UIController : MonoBehaviour
         if (controladorPlatosPrimeros.NumPlatosElegidosCorrecto() &&
             controladorPlatosSegundos.NumPlatosElegidosCorrecto())
         {
-            botonSeleccionPlatos.enabled = true;
+            HabilitarBoton(botonSeleccionPlatos);
         }
         else {
-            botonSeleccionPlatos.enabled = false;
+            DeshabilitarBoton(botonSeleccionPlatos);
         }
     }
 
