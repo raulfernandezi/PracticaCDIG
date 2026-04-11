@@ -43,7 +43,7 @@ public class ControladorCuenta : MonoBehaviour
 
             nombrePlato = p.platoNombre.Split(".")[0];
             cantidadPlato = p.textoNumPlato;
-            precioPlato = p.textoPrecio.Split("€")[0];
+            precioPlato = p.textoPrecio.Split(simboloEuro)[0];
 
             texto = plato.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
             texto.text = nombrePlato;
