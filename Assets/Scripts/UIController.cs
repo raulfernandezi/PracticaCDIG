@@ -17,6 +17,7 @@ public class UIController : MonoBehaviour
     [SerializeField] private ControladorPlatos controladorPlatosPostre;
     [SerializeField] private ControladorPlatos controladorPlatosCafe;
 
+    [SerializeField] private ControladorCuenta controladorCuenta;
 
     [SerializeField] private GameObject[] pestaniasPlatos;
 
@@ -64,6 +65,12 @@ public class UIController : MonoBehaviour
                 platos.AddRange(controladorPlatosBebida.GetPlatos());
                 platos.AddRange(controladorPlatosPostre.GetPlatos());
                 platos.AddRange(controladorPlatosCafe.GetPlatos());
+                Paneles[posicion].SetActive(false);
+                posicion++;
+                Paneles[posicion].SetActive(true);
+                break;
+            case 3:
+                controladorCuenta.calcularCuenta();
                 Paneles[posicion].SetActive(false);
                 posicion++;
                 Paneles[posicion].SetActive(true);

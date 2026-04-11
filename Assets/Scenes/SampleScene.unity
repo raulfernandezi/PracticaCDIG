@@ -7297,7 +7297,7 @@ PrefabInstance:
     - target: {fileID: 5937947007716543710, guid: bb18110a8b77fe142af99bcfaf32ae8c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 864650466}
     - target: {fileID: 5937947007716543710, guid: bb18110a8b77fe142af99bcfaf32ae8c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: AvanzarPantalla
@@ -9682,7 +9682,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 789083034}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.9999929
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -10084,6 +10084,7 @@ MonoBehaviour:
   controladorPlatosBebida: {fileID: 1649919740}
   controladorPlatosPostre: {fileID: 717919591}
   controladorPlatosCafe: {fileID: 689316503}
+  controladorCuenta: {fileID: 330549288}
   pestaniasPlatos:
   - {fileID: 120774719}
   - {fileID: 127844480}
@@ -19406,7 +19407,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000011444092, y: 0.000006296417}
+  m_AnchoredPosition: {x: -0.000011444092, y: 0.00021886271}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1748463803
