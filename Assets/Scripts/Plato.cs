@@ -8,13 +8,15 @@ using UnityEngine.UI;
 public class Plato : MonoBehaviour
 {
     [SerializeField] private ControladorPlatos controladorPlatos;
-    [SerializeField] private TextMeshProUGUI numPlatos;
+    [SerializeField] private TextMeshProUGUI textoNumPlatos;
     [SerializeField] private TextMeshProUGUI textoPrecio;
     [SerializeField] private TextMeshProUGUI textoNombrePlato;
     [SerializeField] private Button botonAumentar;
     [SerializeField] private Button botonDisminuir;
     [SerializeField] private Image iconoDisponible;
     [SerializeField] private bool noDisponible;
+
+
 
     private int numPlatosint;
 
@@ -47,18 +49,18 @@ public class Plato : MonoBehaviour
     {
         if (controladorPlatos.ComprobarNumPlatos(valor) && numPlatosint + valor >= 0)
         {
-            controladorPlatos.CambiarNumPlatos(valor);
+            controladorPlatos.CambiarNumPlatos(valor, textoNombrePlato.text, textoPrecio.text, textoNumPlatos.text);
             numPlatosint += valor;
-            numPlatos.text = numPlatosint.ToString();
-            if(numPlatosint == 0)
-            {
+            textoNumPlatos.text = numPlatosint.ToString();
+            if(numPlatosint == 0) {
                 ApagarBoton(botonDisminuir);
             }
-            else{
+            else {
                 EncenderBoton(botonDisminuir);
             }
         }
     }
+
 
     private void ApagarBoton(Button buton) {
         buton.enabled = false;
