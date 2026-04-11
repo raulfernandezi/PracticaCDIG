@@ -35,6 +35,7 @@ public class ControladorEstadoPlatos : MonoBehaviour
         platos[posCafe].gameObject.SetActive(false);
         progresante = platos[numClicks];
         DeshabilitarBoton(botonAvanzar);
+        botonAvanzar.onClick.AddListener(PedirSiguientePLato);
     }
     private void Update()
     {
@@ -68,7 +69,7 @@ public class ControladorEstadoPlatos : MonoBehaviour
         numClicks++;
         if (numClicks >= numClicksCambioBoton)
         {
-            botonAvanzar.onClick.RemoveAllListeners();
+            botonAvanzar.onClick.RemoveListener(PedirSiguientePLato);
             botonAvanzar.onClick.AddListener(controlador.AvanzarPantalla);
             botonAvanzar.GetComponentInChildren<TextMeshProUGUI>().text = "CONTINUAR";
         }

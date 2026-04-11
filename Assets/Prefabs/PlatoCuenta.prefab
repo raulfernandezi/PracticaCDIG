@@ -277,7 +277,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 712222024868023026}
-  - component: {fileID: -1536307538129962026}
   m_Layer: 5
   m_Name: PlatoCuenta
   m_TagString: Untagged
@@ -307,26 +306,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &-1536307538129962026
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7221188494901324433}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b3929b8312167c4eba2f53f4aabf6a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controladorPlatos: {fileID: 0}
-  textoNumPlatos: {fileID: 0}
-  textoPrecio: {fileID: 7643244489356232399}
-  textoNombrePlato: {fileID: 6744538121761177170}
-  botonAumentar: {fileID: 0}
-  botonDisminuir: {fileID: 0}
-  iconoDisponible: {fileID: 0}
-  noDisponible: 0
 --- !u!1 &7653442778257868122
 GameObject:
   m_ObjectHideFlags: 0
