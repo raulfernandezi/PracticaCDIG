@@ -50,6 +50,10 @@ public class ControladorPlatos : MonoBehaviour
     {
         numPlatos += valor;
         platos.RemoveAll(t => t.platoNombre == platoNombre);
+        foreach (PlatoTexto t in platos)
+        {
+            Debug.Log(t.textoNumPlato);
+        }
         platos.Add(new PlatoTexto (platoNombre, textoPrecio, textoNumPlatos));
         if(numPlatos == controlador.GetNumComensales())
         {

@@ -49,10 +49,10 @@ public class Plato : MonoBehaviour
     {
         if (controladorPlatos.ComprobarNumPlatos(valor) && numPlatosint + valor >= 0)
         {
-            controladorPlatos.CambiarNumPlatos(valor, textoNombrePlato.text, textoPrecio.text, textoNumPlatos.text);
             numPlatosint += valor;
             textoNumPlatos.text = numPlatosint.ToString();
-            if(numPlatosint == 0) {
+            controladorPlatos.CambiarNumPlatos(valor, textoNombrePlato.text, textoPrecio.text, textoNumPlatos.text);
+            if (numPlatosint == 0) {
                 ApagarBoton(botonDisminuir);
             }
             else {
