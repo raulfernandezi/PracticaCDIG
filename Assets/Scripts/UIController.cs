@@ -71,7 +71,9 @@ public class UIController : MonoBehaviour
                 break;
         }
     }
-
+    public List<PlatoTexto> getListaPlatos() {
+        return platos;
+    }
     public void CambiarNumComensales(int valor) {
         if (numComensales + valor > 0 && numComensales + valor <= MAX_COMENSALES) {
             numComensales += valor;
