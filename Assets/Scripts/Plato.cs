@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using static EstadoPlato;
 using static Utilidades;
 public class Plato : MonoBehaviour
 {
@@ -15,8 +16,7 @@ public class Plato : MonoBehaviour
     [SerializeField] private Button botonDisminuir;
     [SerializeField] private Image iconoDisponible;
     [SerializeField] private bool noDisponible;
-
-
+    [SerializeField] private TipoPlato tipoPlato;
 
     private int numPlatosint;
 
@@ -55,7 +55,7 @@ public class Plato : MonoBehaviour
         {
             numPlatosint += valor;
             textoNumPlatos.text = numPlatosint.ToString();
-            controladorPlatos.CambiarNumPlatos(valor, textoNombrePlato.text, textoPrecio.text, textoNumPlatos.text);
+            controladorPlatos.CambiarNumPlatos(valor, textoNombrePlato.text, textoPrecio.text, textoNumPlatos.text,tipoPlato);
             if (numPlatosint == 0) {
                 DeshabilitarBoton(botonDisminuir);
             }

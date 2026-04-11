@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static EstadoPlato;
 using static Utilidades;
 
 public class ControladorPlatos : MonoBehaviour
@@ -30,11 +31,11 @@ public class ControladorPlatos : MonoBehaviour
         return false;
     }
 
-    public void CambiarNumPlatos(int valor, String platoNombre, String textoPrecio, String textoNumPlatos)
+    public void CambiarNumPlatos(int valor, String platoNombre, String textoPrecio, String textoNumPlatos, TipoPlato tipoPlato)
     {
         numPlatos += valor;
         platos.RemoveAll(t => t.platoNombre == platoNombre);
-        platos.Add(new PlatoTexto (platoNombre, textoPrecio, textoNumPlatos));
+        platos.Add(new PlatoTexto (platoNombre, textoPrecio, textoNumPlatos, tipoPlato));
 
         if(numPlatos == controlador.GetNumComensales())
         {

@@ -1,5 +1,6 @@
 using System;
 using UnityEngine.UI;
+using static EstadoPlato;
 
 
 public class Utilidades
@@ -9,12 +10,14 @@ public class Utilidades
         public String platoNombre;
         public String textoPrecio;
         public String textoNumPlato;
+        public TipoPlato tipoPlato;
 
-        public PlatoTexto(String platoNombre, String textoPrecio, String textoNumPlato)
+        public PlatoTexto(String platoNombre, String textoPrecio, String textoNumPlato, TipoPlato tipoPlato)
         {
             this.platoNombre = platoNombre;
             this.textoPrecio = textoPrecio;
             this.textoNumPlato = textoNumPlato;
+            this.tipoPlato = tipoPlato;
         }
     }
 

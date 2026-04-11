@@ -996,8 +996,9 @@ MonoBehaviour:
   textoNombrePlato: {fileID: 6744538121761177170}
   botonAumentar: {fileID: 5584242328926368092}
   botonDisminuir: {fileID: 4035150896207136443}
-  iconoDisponible: {fileID: 0}
+  iconoDisponible: {fileID: 593404452983990631}
   noDisponible: 1
+  tipoPlato: 0
 --- !u!1 &8414997784522402516
 GameObject:
   m_ObjectHideFlags: 0

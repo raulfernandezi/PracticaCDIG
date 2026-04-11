@@ -18,6 +18,8 @@ public class UIController : MonoBehaviour
     [SerializeField] private ControladorPlatos controladorPlatosPostre;
     [SerializeField] private ControladorPlatos controladorPlatosCafe;
 
+    [SerializeField] private ControladorEstadoPlatos controladorEstadoPlatos;
+
     [SerializeField] private ControladorCuenta controladorCuenta;
 
     [SerializeField] private GameObject[] pestaniasPlatos;
@@ -61,7 +63,8 @@ public class UIController : MonoBehaviour
                 platos.AddRange(controladorPlatosBebida.GetPlatos());
                 platos.AddRange(controladorPlatosPostre.GetPlatos());
                 platos.AddRange(controladorPlatosCafe.GetPlatos());
-                platos.Add(new PlatoTexto("pan","0.0", numComensales.ToString()));
+                platos.Add(new PlatoTexto("pan","0.0", numComensales.ToString(),EstadoPlato.TipoPlato.Primero));
+                controladorEstadoPlatos.Inicializar();
                 AvanzarASiguientePanel();
                 break;
             case 3:
@@ -112,5 +115,29 @@ public class UIController : MonoBehaviour
     public int GetNumComensales()
     {
         return numComensales;
+    }
+
+    public bool TieneCafe()
+    {
+        foreach(PlatoTexto p in platos)
+        {
+            if(p.tipoPlato == EstadoPlato.TipoPlato.Café)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public bool TienePostre()
+    {
+        foreach (PlatoTexto p in platos)
+        {
+            if (p.tipoPlato == EstadoPlato.TipoPlato.Postre)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }
