@@ -56,6 +56,7 @@ public class UIController : MonoBehaviour
 
     public void AvanzarPantalla()
     {
+        Debug.Log("Avance");
         switch (posicion) {
             case 2:
                 platos.AddRange(controladorPlatosPrimeros.GetPlatos());
