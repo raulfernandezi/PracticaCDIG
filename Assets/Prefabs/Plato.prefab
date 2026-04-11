@@ -1201,10 +1201,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controladorPlatos: {fileID: 0}
-  numPlatos: {fileID: 2931875125835274864}
+  textoNumPlatos: {fileID: 2931875125835274864}
   textoPrecio: {fileID: 7643244489356232399}
   textoNombrePlato: {fileID: 6744538121761177170}
   botonAumentar: {fileID: 5584242328926368092}
   botonDisminuir: {fileID: 4035150896207136443}
   iconoDisponible: {fileID: 6295639267996889444}
-  disponible: 0
+  noDisponible: 0
