@@ -89,9 +89,10 @@ public class ControladorEstadoPlatos : MonoBehaviour
                 e.GetTextoProgreso().text = "Su " + e.GetTextoPlato().text.ToLower() + " está cocinandose";
                 break;
             case var p when p <= ProporcionFin:
-                e.GetTextoProgreso().text = "Su " + e.GetTextoPlato().text.ToLower() + " está servido";
+                e.GetTextoProgreso().text = "Su " + e.GetTextoPlato().text.ToLower() + " está sirviéndose";
                 break;
             default:
+                e.GetTextoProgreso().text = "Su " + e.GetTextoPlato().text.ToLower() + " está servido";
                 HabilitarBoton(botonAvanzar);
                 break;
         }
