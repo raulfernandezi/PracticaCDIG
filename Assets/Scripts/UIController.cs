@@ -111,6 +111,8 @@ public class UIController : MonoBehaviour
         pestaniasPlatos[numPestaniaPlatos].SetActive(false);
         pestaniasPlatos[pestania].SetActive(true);
         numPestaniaPlatos = pestania;
+
+        UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.GetComponent<Button>().Select();
     }
 
     public int GetNumComensales()
